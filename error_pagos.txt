@@ -1,0 +1,43 @@
+Error:
+Odoo Server Error
+
+Traceback (most recent call last):
+  File "/home/odoo/src/odoo/odoo/http.py", line 633, in _handle_exception
+    return super(JsonRequest, self)._handle_exception(exception)
+  File "/home/odoo/src/odoo/odoo/http.py", line 317, in _handle_exception
+    raise pycompat.reraise(type(exception), exception, sys.exc_info()[2])
+  File "/home/odoo/src/odoo/odoo/tools/pycompat.py", line 14, in reraise
+    raise value
+  File "/home/odoo/src/odoo/odoo/http.py", line 678, in dispatch
+    result = self._call_function(**self.params)
+  File "/home/odoo/src/odoo/odoo/http.py", line 357, in _call_function
+    return checked_call(self.db, *args, **kwargs)
+  File "/home/odoo/src/odoo/odoo/service/model.py", line 94, in wrapper
+    return f(dbname, *args, **kwargs)
+  File "/home/odoo/src/odoo/odoo/http.py", line 346, in checked_call
+    result = self.endpoint(*a, **kw)
+  File "/home/odoo/src/odoo/odoo/http.py", line 918, in __call__
+    return self.method(*args, **kw)
+  File "/home/odoo/src/odoo/odoo/http.py", line 524, in response_wrap
+    response = f(*args, **kw)
+  File "/home/odoo/src/odoo/addons/web/controllers/main.py", line 1318, in call_kw
+    return self._call_kw(model, method, args, kwargs)
+  File "/home/odoo/src/odoo/addons/web/controllers/main.py", line 1310, in _call_kw
+    return call_kw(request.env[model], method, args, kwargs)
+  File "/home/odoo/src/odoo/odoo/api.py", line 392, in call_kw
+    result = _call_kw_multi(method, model, args, kwargs)
+  File "/home/odoo/src/odoo/odoo/api.py", line 377, in _call_kw_multi
+    result = method(recs, *args, **kwargs)
+  File "/home/odoo/src/odoo/addons/account/models/account_move.py", line 2456, in js_assign_outstanding_line
+    return lines.reconcile()
+  File "/home/odoo/src/enterprise/l10n_mx_edi/models/account_move.py", line 67, in reconcile
+    pay._l10n_mx_edi_retry()
+  File "/home/odoo/src/user/l10n_mx_cfdi4_tuodoo/models/account_payment.py", line 157, in _l10n_mx_edi_retry
+    cfdi_values = rec._l10n_mx_edi_create_cfdi_payment()
+  File "/home/odoo/src/user/l10n_mx_cfdi4_tuodoo/models/account_payment.py", line 61, in _l10n_mx_edi_create_cfdi_payment
+    values = self._l10n_mx_edi_create_cfdi_values()
+  File "/home/odoo/src/user/l10n_mx_cfdi4_tuodoo/models/account_payment.py", line 372, in _l10n_mx_edi_create_cfdi_values
+    self.add_resitual_amounts()
+  File "/home/odoo/src/user/l10n_mx_cfdi4_tuodoo/models/account_payment.py", line 527, in add_resitual_amounts
+    payment_content = payment_dict['content']
+TypeError: 'bool' object is not subscriptable
